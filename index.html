@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Справочник абонентов</title>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700&subset=cyrillic-ext,latin' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-html5-1.6.1/b-print-1.6.1/datatables.min.css"/>
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<div id="abonents">
+    <div class="title">Телефонный справочник группы компаний МРП</div>
+    <table class="filter">
+        <tr>
+            <td>
+                <select id="company">
+                    <option value="mrp">МРП</option>
+                    <option value="mosturflot">Мостурфлот</option>
+                    <option value="uport">Южный порт</option>
+                    <option value="piter">Русский навигатор</option>
+                </select>
+            </td>
+            <td>
+                <input type="text" id="qsearch" value="" placeholder="искать" />
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    <table id="personal" class="table table-bordered table-striped" width="100%">
+        <thead>
+        <tr>
+            <th></th>
+            <th>Имя</th>
+            <th>Внутр.</th>
+            <th>Мобильный</th>
+            <th>Телефон</th>
+            <th>FMC</th>
+            <th>Должность</th>
+            <th>Отдел</th>
+            <th>Комната</th>
+            <th>Компания</th>
+        </tr>
+        </thead>
+    </table>
+</div>
+
+
+<script type="text/javascript" src="https://cdn.datatables.net/v/bs4-4.1.1/jq-3.3.1/jszip-2.5.0/dt-1.10.20/b-1.6.1/b-html5-1.6.1/b-print-1.6.1/datatables.min.js"></script>
+<script src="assets/js/abonents.js"></script>
+</body>
+</html>

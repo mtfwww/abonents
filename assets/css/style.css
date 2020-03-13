@@ -1,0 +1,26 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: small;
+}
+
+#abonents {
+    padding:20px;
+}
+
+.filter td{
+   padding:10px;
+}
+
+.title {
+    text-align:center;
+    font-size: large;
+    font-weight: 700;
+}
+.nowrap {
+    white-space: nowrap;
+}
+
+.right {
+    float: right;
+    padding-bottom: 20px;
+}
