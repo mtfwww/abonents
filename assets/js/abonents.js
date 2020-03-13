@@ -24,7 +24,7 @@ $(document).ready(function() {
                     }
                 }
             }
-        };
+        }
 
     });
 
@@ -55,9 +55,6 @@ $(document).ready(function() {
 
     }
 
-
-
-    var ajax_url = 'assets/data/all.json';
     var com = 'mrp';
     var companies = {
         mrp: "МРП",
@@ -110,13 +107,6 @@ $(document).ready(function() {
                 {"data": "room"},
                 {"data": "company", "class": "nowrap"}
             ],
-            "columnDefs": [
-                {
-                    //"targets": [ 0 ],
-                    //"sortable": false,
-                    //"searchable": false
-                }
-            ],
             "createdRow": function (row, data) {
                 $.each(companies, function (k, v) {
                     if (k === data['company'])
@@ -126,7 +116,6 @@ $(document).ready(function() {
             "initComplete": function () {
                 this.api().columns(9).every(function () {
                     var column = this;
-                    //console.log(get_ship);
                     if (com.length > 0) {
                         column.search(com).draw();
                     }
@@ -148,7 +137,6 @@ $(document).ready(function() {
         $('#qsearch').on('keyup', function () {
             t.columns(9).search('').draw();
             t.search(this.value).draw();
-            //t.columns(1).search(this.value).draw();
             if (this.value.length < 3) {
                 t.columns(9).search($('#company').val()).draw();
             }
