@@ -1,12 +1,12 @@
 $(document).ready(function() {
 
-    var mosturflot = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSsgrZpP0_yy6vq6Bwsi8WthGTP93KBxayTeJiKw_cpsmHFJIcxmkO8sV4GsS_wbBWaiYRIDk4HraOc/pub?output=csv";
+    var mosturflot = "assets/data/mosturflot.csv";
 
-    var mrpgroup = "https://docs.google.com/spreadsheets/d/e/2PACX-1vRb3fmvItxj-9wzCviuCwIHBeJLxJzgHXcw3Z_pD46KA3Fa1Qt5flVHqJpoaj9fV-11QBQBSK7B_-iQ/pub?output=csv";
+    var mrpgroup = "assets/data/mrp.csv";
 
-     var uport = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQlt95bIV9DqQw037IkgLOgSc3z_-OxyXarwclj2rMncvAuiMnhr1_5Iq5D5gqiyDNjYDoFuR0QY1DV/pub?output=csv";
+    var uport = "assets/data/uport.csv";
 
-     var piter = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTLnWPibdy-uspaH86Qi98w1LkjknTgxpiSSB59bZt8LALNWLN3KQF05IKjjWnY-udhgH1BeaP-1pNF/pub?output=csv";
+    var piter = "assets/data/piter.csv";
 
      var data = [];
 
@@ -72,12 +72,6 @@ $(document).ready(function() {
                 'excel', 'print'
             ],
             data: data,
-            /*"ajax": {
-                "url": ajax_url,
-                "dataSrc": function (json) {
-                    return json;
-                }
-            },*/
             language: {
                 processing: "Подождите...",
                 search: "Поиск:",
