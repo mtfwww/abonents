@@ -1,14 +1,14 @@
 $(document).ready(function() {
 
-    var mosturflot = "assets/data/mosturflot.csv";
+    const mosturflot = "assets/data/mosturflot.csv";
 
-    var mrpgroup = "assets/data/mrp.csv";
+    const mrpgroup = "assets/data/mrp.csv";
 
-    var uport = "assets/data/uport.csv";
+    const uport = "assets/data/uport.csv";
 
-    var piter = "assets/data/piter.csv";
+    const piter = "assets/data/piter.csv";
 
-     var data = [];
+    const data = [];
 
     $.when(
         $.get(mosturflot),
@@ -55,15 +55,15 @@ $(document).ready(function() {
 
     }
 
-    var com = 'mrp';
-    var companies = {
+    let com = 'mrp';
+    const companies = {
         mrp: "МРП",
         mosturflot: "Мостурфлот",
         uport: "Южный порт",
         piter: "Русский навигатор"
     };
     function InitDatatable() {
-        var t = $('#personal').DataTable({
+        const t = $('#personal').DataTable({
             dom: '<"right"B>T<"clear"><"top"i>rt',
             buttons: [
                 'excel', 'print'
@@ -115,7 +115,7 @@ $(document).ready(function() {
             },
             "initComplete": function () {
                 this.api().columns(9).every(function () {
-                    var column = this;
+                    let column = this;
                     if (com.length > 0) {
                         column.search(com).draw();
                     }
