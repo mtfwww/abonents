@@ -4,8 +4,6 @@ $(document).ready(function() {
 
     const mrpgroup = "assets/data/mrp.csv";
 
-    const uport = "assets/data/uport.csv";
-
     const piter = "assets/data/piter.csv";
 
     const data = [];
@@ -13,16 +11,13 @@ $(document).ready(function() {
     $.when(
         $.get(mosturflot),
         $.get(mrpgroup),
-        $.get(uport),
         $.get(piter),
-    ).then(function(mtf, mrp, port, pit) {
+    ).then(function(mtf, mrp, pit) {
         if(processData(mtf[0], 'mosturflot')){
             if(processData(mrp[0], 'mrp')){
-                if(processData(port[0], 'uport')){
                     if(processData(pit[0], 'piter')) {
                         InitDatatable();
                     }
-                }
             }
         }
 
