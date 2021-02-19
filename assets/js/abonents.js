@@ -4,19 +4,29 @@ $(document).ready(function() {
 
     const mrpgroup = "assets/data/mrp.csv";
 
+    const offices = "assets/data/offices.csv";
+
     const piter = "assets/data/piter.csv";
+
+    const ships = "assets/data/ships.csv";
 
     const data = [];
 
     $.when(
         $.get(mosturflot),
         $.get(mrpgroup),
+        $.get(offices),
         $.get(piter),
-    ).then(function(mtf, mrp, pit) {
+        $.get(ships),
+    ).then(function(mtf, mrp, off, pit, shp) {
         if(processData(mtf[0], 'mosturflot')){
             if(processData(mrp[0], 'mrp')){
-                    if(processData(pit[0], 'piter')) {
-                        InitDatatable();
+                    if(processData(off[0], 'offices')) {
+                        if(processData(pit[0], 'piter')) {
+                            if(processData(shp[0], 'ships')) {
+                                InitDatatable();
+                            }
+                        }
                     }
             }
         }
@@ -52,10 +62,11 @@ $(document).ready(function() {
 
     let com = 'mrp';
     const companies = {
-        mrp: "МРП",
-        mosturflot: "Мостурфлот",
-        uport: "Южный порт",
-        piter: "Русский навигатор"
+        mrp: "Ривер Сити",
+        mosturflot: "ХМСЗ",
+        offices: "Офисы продаж",
+        piter: "Офис Питер",
+        ships: "Теплоходы"
     };
     function InitDatatable() {
         const t = $('#personal').DataTable({
