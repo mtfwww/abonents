@@ -21,13 +21,13 @@ $(document).ready(function() {
     ).then(function(mtf, mrp, off, pit, shp) {
         if(processData(mtf[0], 'mosturflot')){
             if(processData(mrp[0], 'mrp')){
-                    if(processData(off[0], 'offices')) {
-                        if(processData(pit[0], 'piter')) {
-                            if(processData(shp[0], 'ships')) {
-                                InitDatatable();
-                            }
+                if(processData(off[0], 'offices')) {
+                    if(processData(pit[0], 'piter')) {
+                        if(processData(shp[0], 'ships')) {
+                            InitDatatable();
                         }
                     }
+                }
             }
         }
 
@@ -41,14 +41,15 @@ $(document).ready(function() {
             row = all[i].split(',');
             let r = {
                 localorder: i,
-                name: row[0],
-                cityphone: row[1],
-                cellphone: row[2],
-                officephone: row[3],
-                fmc: row[4],
-                speciality: row[5],
-                department: row[6],
-                room: row[7],
+                name: row[0].replace(/"/g, ''),
+                cityphone: row[1].replace(/"/g, ''),
+                cellphone: row[2].replace(/"/g, ''),
+                officephone: row[3].replace(/"/g, ''),
+                fmc: row[4].replace(/"/g, ''),
+                speciality: row[5].replace(/"/g, ''),
+                department: row[6].replace(/"/g, ''),
+                room: row[7].replace(/"/g, ''),
+                org: row[8].replace(/"/g, ''),
                 company: com
             };
             data.push(r);
@@ -111,16 +112,20 @@ $(document).ready(function() {
                 {"data": "speciality"},
                 {"data": "department"},
                 {"data": "room"},
+                {"data": "org"},
                 {"data": "company", "class": "nowrap"}
+            ],
+            columnDefs: [
+                { targets: [10], visible: false, searchable: true},
             ],
             "createdRow": function (row, data) {
                 $.each(companies, function (k, v) {
                     if (k === data['company'])
-                        $('td', row).eq(9).text(v);
+                        $('td', row).eq(10).text(v);
                 });
             },
             "initComplete": function () {
-                this.api().columns(9).every(function () {
+                this.api().columns(10).every(function () {
                     let column = this;
                     if (com.length > 0) {
                         column.search(com).draw();
@@ -137,14 +142,14 @@ $(document).ready(function() {
         }).draw();
 
         $('#company').on('change', function () {
-            t.columns(9).search(this.value).draw();
+            t.columns(10).search(this.value).draw();
         });
 
         $('#qsearch').on('keyup', function () {
-            t.columns(9).search('').draw();
+            t.columns(10).search('').draw();
             t.search(this.value).draw();
             if (this.value.length < 3) {
-                t.columns(9).search($('#company').val()).draw();
+                t.columns(10).search($('#company').val()).draw();
             }
 
         });
